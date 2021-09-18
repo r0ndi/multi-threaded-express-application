@@ -27,7 +27,7 @@ class Server {
     }
 
     private setUpRoutes = (): void => {
-        const exampleAsyncMethod = async () => {
+        const exampleAsyncMethod = async (): Promise<string> => {
             return new Promise((resolve): void => {
                 setTimeout(() => {
                     resolve(`Example operation for process ID: ${process.pid}`);
@@ -35,7 +35,7 @@ class Server {
             });
         };
 
-        this.app.get("/example", async (request: Request, response: Response): Promise<void> => {
+        this.app.get("/", async (request: Request, response: Response): Promise<void> => {
             response.send(await exampleAsyncMethod());
         })
     }

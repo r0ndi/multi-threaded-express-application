@@ -1,8 +1,8 @@
 import Server from "./server";
 
 const appConfig = {
-    PORT: 8000,
+    MULTI_THREADED: true,
+    PORT: 8080,
 };
 
-const server = new Server();
-server.listen(appConfig.PORT);
+new Server(appConfig.PORT, appConfig.MULTI_THREADED);

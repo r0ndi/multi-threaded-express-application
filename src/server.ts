@@ -5,7 +5,7 @@ import os from "os";
 class Server {
     private workers: Worker[] = [];
 
-    private readonly app!: Application;
+    private readonly app: Application;
     private readonly port: number;
 
     constructor(port: number, multiThreaded: boolean = false) {

@@ -52,7 +52,7 @@ class Server {
             console.log(`Worker ${worker.process.pid} is listening`);
         });
 
-        cluster.on("exit", (worker: Worker, code: number, signal: string): void => {
+        cluster.on("exit", (): void => {
             this.workers.push(cluster.fork());
             this.workers[this.workers.length - 1].on("message", (message: string) => {
                 console.log(message);
